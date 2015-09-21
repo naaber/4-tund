@@ -1,5 +1,11 @@
 <?php
 
+	//loome AB ühenduse
+	require_once("../config.php")
+	$database = "if15_naaber"
+	$mysqli = new mysqli($servername, $username, $password, $database);
+
+
   // muuutujad errorite jaoks
 	$email_error = "";
 	$password_error = "";
@@ -62,6 +68,7 @@
 			}
 
 			if(	$create_email_error == "" && $create_password_error == ""){
+				echo hash("sha512", $create_password);
 				echo "Võib kasutajat luua! Kasutajanimi on ".$create_email." ja parool on ".$create_password;
       }
 
